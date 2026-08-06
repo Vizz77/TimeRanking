@@ -16,7 +16,11 @@ struct IronView: View{
     }
     
     var propic : some View{
-        Image(systemName: "person.fill")
+        Image(systemName: "person.fill").frame(maxHeight: .infinity , alignment: .topLeading).padding()
+    }
+    
+    var name : some View{
+        Text("Welcome back ! Vizz77").frame(maxHeight: .infinity , alignment: .topLeading).padding()
     }
     
     var main : some View{
@@ -33,12 +37,23 @@ struct IronView: View{
         }.buttonStyle(IronButton())
     }
     
+    let BackgroundIron = Color(hex: 0xcbcdcd)
+    
     var body: some View{
-        VStack(alignment: .leading , spacing: 16){
-            corner_text;
-            propic;
-            main;
-            buttonLog;
+        ZStack {
+            BackgroundIron.ignoresSafeArea()
+            HStack(alignment: .top){
+                Spacer()
+                propic;
+                name;
+                Spacer()
+            }
+            VStack(spacing: 16){
+                corner_text;
+                main;
+                buttonLog;
+                
+            }
         }
     }
 }

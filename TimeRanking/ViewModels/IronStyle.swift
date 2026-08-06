@@ -26,6 +26,6 @@ extension Color {
 
 struct IronButton : ButtonStyle{
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label.background(Color(hex: 0x848482)).clipShape(Capsule())
+        configuration.label.padding().background(Color(hex: 0x848482)).clipShape(Capsule())
     }
 }
