@@ -10,6 +10,7 @@ import SwiftData
 
 struct IronView: View{
     @State private var showingAlert = false
+    let user : User
     
     var corner_text : some View{
         Text("Streak : 10 days").font(Font.title.weight(.bold))
@@ -20,7 +21,7 @@ struct IronView: View{
     }
     
     var name : some View{
-        Text("Welcome back ! Vizz77").frame(maxHeight: .infinity , alignment: .topLeading).padding()
+        Text("Welcome back " + user.name + " !").frame(maxHeight: .infinity , alignment: .topLeading).padding()
     }
     
     var main : some View{
@@ -59,7 +60,13 @@ struct IronView: View{
 }
 
 #Preview {
-    IronView()
+    IronView(
+        user : User(
+            id : 1,
+            name : "Vizz",
+            userStats: UserStats()
+        )
+    )
 }
 
 // TODO : The Imagine Upload , and the Data Uploading

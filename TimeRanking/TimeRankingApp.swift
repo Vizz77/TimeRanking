@@ -12,7 +12,7 @@ import SwiftData
 struct TimeRankingApp: App {
     var body: some Scene {
         WindowGroup {
-            IronView()
-        }
+            RootView()
+        }.modelContainer(for : User.self)
     }
 }
