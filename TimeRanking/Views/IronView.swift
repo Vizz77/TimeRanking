@@ -62,11 +62,7 @@ struct IronView: View{
 #Preview {
     IronView(
         user : User(
-            id : 1,
-            name : "Vizz",
-            userStats: UserStats()
+            name : "Vizz"
         )
     )
 }
-
-// TODO : The Imagine Upload , and the Data Uploading

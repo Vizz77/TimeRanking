@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct IntroView: View {
-    @State var user : String = ""
+    @State var username : String = ""
+    
     var body: some View {
         Text("Welcome to TimeRanking")
-        Text("Choose your Username")
-        TextField(
-            "Username",
-            text: $user
-        )
+        Form{
+            Section{
+                TextField("Name" , text: $username).textContentType(.name)
+                Button("Create Username"){
+                    var user = User(name : username)
+                }
+                
+            }
+        }.navigationTitle("Add your Username").navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -10,13 +10,11 @@ import SwiftData
 
 @Model
 final class User{
-    @Attribute(.unique) var id: Int
-
-    var name : String
-    var userStats : UserStats
+    // Here we are inizialize an empty object
+    var name : String = ""
+    var userStats : UserStats = UserStats()
     
-    init(id: Int, name: String, userStats: UserStats) {
-        self.id = id
+    init(name: String) {
         self.name = name
         self.userStats = userStats
     }
@@ -24,6 +22,8 @@ final class User{
 
 @Model
 final class UserStats{
+    // Default Values
+    // In this case an empty array
     var skillsList = [Skill]()
 
     init(skillsList: [Skill] = [Skill]()) {
@@ -33,9 +33,10 @@ final class UserStats{
 
 @Model
 final class Skill{
-    var skillName : String
-    var totalTime : Int
-    var rank : Rank
+    // Default Values
+    var skillName : String = ""
+    var totalTime : Int = 0
+    var rank : Rank = Rank.iron
     
     init(skillName: String, totalTime: Int, rank: Rank) {
         self.skillName = skillName
@@ -57,3 +58,5 @@ extension Skill{
         case titan = "Titan"
     }
 }
+
+// The main point here is that you has to use some default values for doing it you has to like set the value not only on the main class but also on the sub class so that every time you try to init a new obj with a empty obj it can use the default values otherwise it will not work, also this means that in reality you are always doing easily this ops , create an empty obj and then edit it.
