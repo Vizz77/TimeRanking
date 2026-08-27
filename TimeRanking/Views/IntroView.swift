@@ -6,21 +6,27 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct IntroView: View {
-    @State var username : String = ""
+    @Environment(\.modelContext) private var modelContext
+    @State private var username: String = ""
     
     var body: some View {
         Text("Welcome to TimeRanking")
-        Form{
-            Section{
-                TextField("Name" , text: $username).textContentType(.name)
-                Button("Create Username"){
-                    var user = User(name : username)
-                }
+        Form {
+            Section {
+                TextField("Name", text: $username)
+                    .textContentType(.name)
                 
+                Button("Create Username") {
+                    let user = User(name: username)
+                    modelContext.insert(user)
+                }
             }
-        }.navigationTitle("Add your Username").navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationTitle("Add your Username")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
