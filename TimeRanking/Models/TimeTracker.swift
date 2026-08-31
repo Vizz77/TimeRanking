@@ -38,7 +38,7 @@ final class Skill{
     var totalTime : Int = 0
     var rank : Rank = Rank.iron
     
-    init(skillName: String, totalTime: Int, rank: Rank) {
+    init(skillName: String) {
         self.skillName = skillName
         self.totalTime = totalTime
         self.rank = rank
