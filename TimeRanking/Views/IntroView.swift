@@ -22,7 +22,7 @@ struct IntroView: View {
                 Button("Create Username") {
                     let user = User(name: username)
                     modelContext.insert(user)
-                }
+                }// you has to add the action to move
             }
         }
         .navigationTitle("Add your Username")

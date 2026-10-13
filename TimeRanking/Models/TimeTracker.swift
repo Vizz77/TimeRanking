@@ -11,12 +11,12 @@ import SwiftData
 @Model
 final class User{
     // Here we are inizialize an empty object
-    var name : String = ""
-    var userStats : UserStats = UserStats()
+    var name : String;
+    var userStats : UserStats;
     
-    init(name: String) {
-        self.name = name
-        self.userStats = userStats
+    init(name: String , userStats : UserStats = UserStats()){
+        self.name = name;
+        self.userStats = userStats;
     }
 }
 
@@ -40,8 +40,6 @@ final class Skill{
     
     init(skillName: String) {
         self.skillName = skillName
-        self.totalTime = totalTime
-        self.rank = rank
     }
 }
 

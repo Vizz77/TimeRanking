@@ -24,9 +24,3 @@ The there will be also achievements for things like streak and certian numbers o
 
 ## Techinical Notes
 Working in progress
-
-## TO - DO
-https://www.hackingwithswift.com/quick-start/swiftui/customizing-button-with-buttonstyle
-Based on this logic , create several , style that reder different based on the hours he users has.
-
-**Vizz**
