@@ -13,6 +13,7 @@ struct HomeView: View {
     let user: User
     @State private var skillName: String = ""
     @State private var showingPopover = false
+    @State private var selectedSkill: Skill?
     
     private let maxSkillCount = 3
     
@@ -24,8 +25,12 @@ struct HomeView: View {
             if user.userStats.skillsList.isEmpty {
                 Text("No skill").foregroundStyle(.secondary)
             } else {
-                List(user.userStats.skillsList) {
-                    skill in Text(skill.skillName)
+                List(user.userStats.skillsList) { skill in
+                    Button {
+                        selectedSkill = skill
+                    } label: {
+                        Text(skill.skillName)
+                    }
                 }.frame(minHeight: 160)
             }
             
@@ -39,7 +44,11 @@ struct HomeView: View {
                     }.padding().frame(width: 240)
                 }
             }
-        }.padding()
+        }.padding().sheet(item: $selectedSkill) { skill in
+            TimePicker { addedSeconds in
+                skill.totalTime += addedSeconds
+            }
+        }
     }
     
     private func addSkill() {

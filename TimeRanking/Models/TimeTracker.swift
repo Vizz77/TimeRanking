@@ -35,7 +35,7 @@ final class UserStats{
 final class Skill{
     // Default Values
     var skillName : String = ""
-    var totalTime : Int = 0
+    var totalTime : Int = 0 //sec
     var rank : Rank = Rank.iron
     
     init(skillName: String) {
